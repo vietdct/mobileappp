@@ -6,23 +6,13 @@ const elementNum1   = document.getElementById("num1");
 const elementNum2   = document.getElementById("num2");
 const elementResult = document.getElementById("result");
 
-elementSelect.addEventListener("change",update);
-elementNum1.addEventListener("change",update);
-elementNum2.addEventListener("change",update);
+elementSelect.addEventListener("change",
+    function(){
+        let num1 = Number(elementNum1.value);
+        let num2 = Number(elementNum2.value);
+        let calcType = elementSelect.value;
+        let result;
 
-function update(){
-     const result = calculate(
-        Number(elementNum1.value),
-        Number(elementNum2.value),
-        elementSelect.value
-        );
-        
-      elementResult.innerHTML = result;
-}
-
-//関数「CALCULATOR」を作り、処理をまとめる
-function calculate(num1,num2,calcType){
-    let result;
         switch (calcType) {
         case "type-add": // 足し算
             result = num1 + num2;
@@ -37,6 +27,57 @@ function calculate(num1,num2,calcType){
             result = num1 / num2;
             break;
     }
+      elementResult.innerHTML = result;
+    },false
     
-    return result;
-}
+);
+elementNum1.addEventListener("change",
+    function(){
+        let num1 = Number(elementNum1.value);
+        let num2 = Number(elementNum2.value);
+        let calcType = elementSelect.value;
+        let result;
+
+        switch (calcType) {
+        case "type-add": // 足し算
+            result = num1 + num2;
+            break;
+        case "type-substract": // 引き算
+            result = num1 - num2;
+            break;
+        case "type-multiply": // 掛け算
+            result = num1 * num2;
+            break;
+        case "type-divide": // 割り算
+            result = num1 / num2;
+            break;
+    }
+      elementResult.innerHTML = result;
+    },false
+    
+);
+elementNum2.addEventListener("change",
+    function(){
+        let num1 = Number(elementNum1.value);
+        let num2 = Number(elementNum2.value);
+        let calcType = elementSelect.value;
+        let result;
+
+        switch (calcType) {
+        case "type-add": // 足し算
+            result = num1 + num2;
+            break;
+        case "type-substract": // 引き算
+            result = num1 - num2;
+            break;
+        case "type-multiply": // 掛け算
+            result = num1 * num2;
+            break;
+        case "type-divide": // 割り算
+            result = num1 / num2;
+            break;
+    }
+      elementResult.innerHTML = result;
+    },false
+    
+);
